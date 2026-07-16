@@ -10,8 +10,8 @@ if ! command -v docker &> /dev/null; then
     exit 1
 fi
 
-echo "📦 Levantando la Base de Datos PostgreSQL con Docker..."
-docker-compose up -d
+echo "📦 Levantando la Base de Datos PostgreSQL con Docker (Puerto 5433)..."
+sudo docker-compose up -d
 
 echo "⏳ Esperando 5 segundos a que la base de datos esté lista..."
 sleep 5
