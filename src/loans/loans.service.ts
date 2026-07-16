@@ -1,6 +1,6 @@
 import { Injectable, NotFoundException, BadRequestException, ConflictException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Repository, DataSource } from 'typeorm';
+import { Repository, DataSource, Not } from 'typeorm';
 import { Loan, LoanStatus } from './entities/loan.entity';
 import { AmortizationSchedule, ScheduleStatus } from './entities/amortization-schedule.entity';
 import { ClientsService } from '../clients/clients.service';
@@ -161,10 +161,11 @@ export class LoansService {
     await queryRunner.startTransaction();
 
     try {
-      const loan = await queryRunner.manager.findOne(Loan, {
-        where: { id },
-        relations: ['client'],
-      });
+      const findOptions: any = { where: { id }, relations: ['client'] };
+      if (queryRunner.connection.options.type !== 'sqlite') {
+        findOptions.lock = { mode: 'pessimistic_write' };
+      }
+      const loan = await queryRunner.manager.findOne(Loan, findOptions);
 
       if (!loan) {
         throw new NotFoundException(`Loan with ID ${id} not found`);
@@ -176,9 +177,9 @@ export class LoansService {
 
       const activeLoan = await queryRunner.manager.findOne(Loan, {
         where: [
-          { clientId: loan.clientId, status: LoanStatus.IN_MORA },
-          { clientId: loan.clientId, status: LoanStatus.DISBURSED },
-          { clientId: loan.clientId, status: LoanStatus.APPROVED },
+          { clientId: loan.clientId, status: LoanStatus.IN_MORA, id: Not(loan.id) },
+          { clientId: loan.clientId, status: LoanStatus.DISBURSED, id: Not(loan.id) },
+          { clientId: loan.clientId, status: LoanStatus.APPROVED, id: Not(loan.id) },
         ],
       });
 

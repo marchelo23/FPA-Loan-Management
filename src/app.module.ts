@@ -7,6 +7,8 @@ import { LoansModule } from './loans/loans.module';
 import { PaymentsModule } from './payments/payments.module';
 import { ReportsModule } from './reports/reports.module';
 import { ScheduleModule } from './schedule/schedule.module';
+import { ThrottlerModule, ThrottlerGuard } from '@nestjs/throttler';
+import { APP_GUARD } from '@nestjs/core';
 
 @Module({
   imports: [
@@ -24,12 +26,22 @@ import { ScheduleModule } from './schedule/schedule.module';
       synchronize: true,
       dropSchema: process.env.NODE_ENV === 'test',
     }),
+    ThrottlerModule.forRoot([{
+      ttl: 60000,
+      limit: 100,
+    }]),
     AuthModule,
     ClientsModule,
     LoansModule,
     PaymentsModule,
     ReportsModule,
     ScheduleModule,
+  ],
+  providers: [
+    {
+      provide: APP_GUARD,
+      useClass: ThrottlerGuard,
+    },
   ],
 })
 export class AppModule {}

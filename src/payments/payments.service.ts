@@ -25,9 +25,11 @@ export class PaymentsService {
     await queryRunner.startTransaction();
 
     try {
-      const loan = await queryRunner.manager.findOne(Loan, {
-        where: { id: createPaymentDto.loanId },
-      });
+      const findOptions: any = { where: { id: createPaymentDto.loanId } };
+      if (queryRunner.connection.options.type !== 'sqlite') {
+        findOptions.lock = { mode: 'pessimistic_write' };
+      }
+      const loan = await queryRunner.manager.findOne(Loan, findOptions);
 
       if (!loan) {
         throw new NotFoundException(`Loan with ID ${createPaymentDto.loanId} not found`);

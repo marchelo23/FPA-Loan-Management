@@ -75,7 +75,7 @@ export class LoansController {
   }
 
   @Put(':id/disburse')
-  @Roles(UserRole.ADMIN, UserRole.CASHIER)
+  @Roles(UserRole.ADMIN)
   @ApiOperation({ summary: 'Disburse a loan' })
   @ApiResponse({ status: 200, description: 'Loan disbursed successfully' })
   @ApiResponse({ status: 400, description: 'Bad request' })

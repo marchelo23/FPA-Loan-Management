@@ -67,6 +67,7 @@ describe('LoansService', () => {
       find: jest.fn(),
       save: jest.fn(),
     },
+    connection: { options: { type: 'postgres' } },
     commitTransaction: jest.fn(),
     rollbackTransaction: jest.fn(),
     release: jest.fn(),
