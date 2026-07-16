@@ -18,7 +18,7 @@ export class User {
   password: string;
 
   @Column({
-    type: 'enum',
+    type: 'varchar',
     enum: UserRole,
     default: UserRole.CASHIER,
   })

@@ -36,7 +36,7 @@ export class Loan {
   monthlyPayment: number;
 
   @Column({
-    type: 'enum',
+    type: 'varchar',
     enum: LoanStatus,
     default: LoanStatus.REQUESTED,
   })

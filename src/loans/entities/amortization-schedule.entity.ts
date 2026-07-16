@@ -40,7 +40,7 @@ export class AmortizationSchedule {
   outstandingInterest: number;
 
   @Column({
-    type: 'enum',
+    type: 'varchar',
     enum: ScheduleStatus,
     default: ScheduleStatus.PENDING,
   })

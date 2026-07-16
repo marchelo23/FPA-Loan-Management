@@ -22,7 +22,7 @@ export class Payment {
   amount: number;
 
   @Column({
-    type: 'enum',
+    type: 'varchar',
     enum: PaymentType,
     default: PaymentType.PARTIAL,
   })

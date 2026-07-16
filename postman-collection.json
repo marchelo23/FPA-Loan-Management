@@ -36,8 +36,13 @@
             },
             "url": {
               "raw": "{{baseUrl}}/auth/register",
-              "host": ["{{baseUrl}}"],
-              "path": ["auth", "register"]
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "auth",
+                "register"
+              ]
             }
           }
         },
@@ -57,8 +62,13 @@
             },
             "url": {
               "raw": "{{baseUrl}}/auth/login",
-              "host": ["{{baseUrl}}"],
-              "path": ["auth", "login"]
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "auth",
+                "login"
+              ]
             }
           },
           "event": [
@@ -86,8 +96,13 @@
             ],
             "url": {
               "raw": "{{baseUrl}}/auth/profile",
-              "host": ["{{baseUrl}}"],
-              "path": ["auth", "profile"]
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "auth",
+                "profile"
+              ]
             }
           }
         }
@@ -117,8 +132,12 @@
             },
             "url": {
               "raw": "{{baseUrl}}/clients",
-              "host": ["{{baseUrl}}"],
-              "path": ["clients"]
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "clients"
+              ]
             }
           }
         },
@@ -134,8 +153,12 @@
             ],
             "url": {
               "raw": "{{baseUrl}}/clients",
-              "host": ["{{baseUrl}}"],
-              "path": ["clients"]
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "clients"
+              ]
             }
           }
         },
@@ -151,8 +174,13 @@
             ],
             "url": {
               "raw": "{{baseUrl}}/clients/:id",
-              "host": ["{{baseUrl}}"],
-              "path": ["clients", ":id"],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "clients",
+                ":id"
+              ],
               "variable": [
                 {
                   "key": "id",
@@ -183,8 +211,146 @@
             },
             "url": {
               "raw": "{{baseUrl}}/clients/:id",
-              "host": ["{{baseUrl}}"],
-              "path": ["clients", ":id"],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "clients",
+                ":id"
+              ],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "client-id-here"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Get Client by Identification",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/clients/identification/:identificationNumber",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "clients",
+                "identification",
+                ":identificationNumber"
+              ],
+              "variable": [
+                {
+                  "key": "identificationNumber",
+                  "value": "123456789"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Update Credit Score",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"creditScore\": 850\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/clients/:id/credit-score",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "clients",
+                ":id",
+                "credit-score"
+              ],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "client-id-here"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Update Credit Limit",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"creditLimit\": 20000\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/clients/:id/credit-limit",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "clients",
+                ":id",
+                "credit-limit"
+              ],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "client-id-here"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Delete Client",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/clients/:id",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "clients",
+                ":id"
+              ],
               "variable": [
                 {
                   "key": "id",
@@ -220,8 +386,13 @@
             },
             "url": {
               "raw": "{{baseUrl}}/loans/simulate",
-              "host": ["{{baseUrl}}"],
-              "path": ["loans", "simulate"]
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "loans",
+                "simulate"
+              ]
             }
           }
         },
@@ -246,8 +417,12 @@
             },
             "url": {
               "raw": "{{baseUrl}}/loans",
-              "host": ["{{baseUrl}}"],
-              "path": ["loans"]
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "loans"
+              ]
             }
           }
         },
@@ -263,8 +438,12 @@
             ],
             "url": {
               "raw": "{{baseUrl}}/loans",
-              "host": ["{{baseUrl}}"],
-              "path": ["loans"]
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "loans"
+              ]
             }
           }
         },
@@ -280,8 +459,13 @@
             ],
             "url": {
               "raw": "{{baseUrl}}/loans/:id",
-              "host": ["{{baseUrl}}"],
-              "path": ["loans", ":id"],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "loans",
+                ":id"
+              ],
               "variable": [
                 {
                   "key": "id",
@@ -303,8 +487,14 @@
             ],
             "url": {
               "raw": "{{baseUrl}}/loans/:id/approve",
-              "host": ["{{baseUrl}}"],
-              "path": ["loans", ":id", "approve"],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "loans",
+                ":id",
+                "approve"
+              ],
               "variable": [
                 {
                   "key": "id",
@@ -335,8 +525,14 @@
             },
             "url": {
               "raw": "{{baseUrl}}/loans/:id/reject",
-              "host": ["{{baseUrl}}"],
-              "path": ["loans", ":id", "reject"],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "loans",
+                ":id",
+                "reject"
+              ],
               "variable": [
                 {
                   "key": "id",
@@ -358,8 +554,14 @@
             ],
             "url": {
               "raw": "{{baseUrl}}/loans/:id/disburse",
-              "host": ["{{baseUrl}}"],
-              "path": ["loans", ":id", "disburse"],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "loans",
+                ":id",
+                "disburse"
+              ],
               "variable": [
                 {
                   "key": "id",
@@ -381,8 +583,14 @@
             ],
             "url": {
               "raw": "{{baseUrl}}/loans/:id/update-status",
-              "host": ["{{baseUrl}}"],
-              "path": ["loans", ":id", "update-status"],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "loans",
+                ":id",
+                "update-status"
+              ],
               "variable": [
                 {
                   "key": "id",
@@ -404,12 +612,47 @@
             ],
             "url": {
               "raw": "{{baseUrl}}/loans/:id/late-interest",
-              "host": ["{{baseUrl}}"],
-              "path": ["loans", ":id", "late-interest"],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "loans",
+                ":id",
+                "late-interest"
+              ],
               "variable": [
                 {
                   "key": "id",
                   "value": "loan-id-here"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Get Client Loans",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/loans/client/:clientId",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "loans",
+                "client",
+                ":clientId"
+              ],
+              "variable": [
+                {
+                  "key": "clientId",
+                  "value": "client-id-here"
                 }
               ]
             }
@@ -441,8 +684,12 @@
             },
             "url": {
               "raw": "{{baseUrl}}/payments",
-              "host": ["{{baseUrl}}"],
-              "path": ["payments"]
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "payments"
+              ]
             }
           }
         },
@@ -458,8 +705,12 @@
             ],
             "url": {
               "raw": "{{baseUrl}}/payments",
-              "host": ["{{baseUrl}}"],
-              "path": ["payments"]
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "payments"
+              ]
             }
           }
         },
@@ -475,8 +726,14 @@
             ],
             "url": {
               "raw": "{{baseUrl}}/payments/loan/:loanId",
-              "host": ["{{baseUrl}}"],
-              "path": ["payments", "loan", ":loanId"],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "payments",
+                "loan",
+                ":loanId"
+              ],
               "variable": [
                 {
                   "key": "loanId",
@@ -498,8 +755,15 @@
             ],
             "url": {
               "raw": "{{baseUrl}}/payments/loan/:loanId/account-status",
-              "host": ["{{baseUrl}}"],
-              "path": ["payments", "loan", ":loanId", "account-status"],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "payments",
+                "loan",
+                ":loanId",
+                "account-status"
+              ],
               "variable": [
                 {
                   "key": "loanId",
@@ -526,8 +790,13 @@
             ],
             "url": {
               "raw": "{{baseUrl}}/reports/overdue-portfolio",
-              "host": ["{{baseUrl}}"],
-              "path": ["reports", "overdue-portfolio"]
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "reports",
+                "overdue-portfolio"
+              ]
             }
           }
         },
@@ -543,8 +812,13 @@
             ],
             "url": {
               "raw": "{{baseUrl}}/reports/portfolio-summary",
-              "host": ["{{baseUrl}}"],
-              "path": ["reports", "portfolio-summary"]
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "reports",
+                "portfolio-summary"
+              ]
             }
           }
         },
@@ -560,8 +834,14 @@
             ],
             "url": {
               "raw": "{{baseUrl}}/reports/client/:clientId",
-              "host": ["{{baseUrl}}"],
-              "path": ["reports", "client", ":clientId"],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "reports",
+                "client",
+                ":clientId"
+              ],
               "variable": [
                 {
                   "key": "clientId",
@@ -583,8 +863,14 @@
             ],
             "url": {
               "raw": "{{baseUrl}}/reports/payment-history/:loanId",
-              "host": ["{{baseUrl}}"],
-              "path": ["reports", "payment-history", ":loanId"],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "reports",
+                "payment-history",
+                ":loanId"
+              ],
               "variable": [
                 {
                   "key": "loanId",
