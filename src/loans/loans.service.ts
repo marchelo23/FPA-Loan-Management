@@ -161,7 +161,7 @@ export class LoansService {
     await queryRunner.startTransaction();
 
     try {
-      const findOptions: any = { where: { id }, relations: ['client'] };
+      const findOptions: any = { where: { id } };
       if (queryRunner.connection.options.type !== 'sqlite') {
         findOptions.lock = { mode: 'pessimistic_write' };
       }
